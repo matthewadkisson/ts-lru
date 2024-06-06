@@ -1,6 +1,6 @@
 {
   "name": "ts_lru_map",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A typescript implementation of the lru_map package",
   "module": "./dist/lru-map.es.js",
   "main": "./dist/lru-map.cjs.js",
@@ -33,12 +33,9 @@
   },
   "homepage": "https://github.com/matthewadkisson/ts-lru#readme",
   "dependencies": {
-    "@mdi/font": "7.0.96",
-    "@mdi/js": "^7.2.96",
-    "roboto-fontface": "*",
-    "rollup": "^3.27.1"
   },
   "devDependencies": {
+    "rollup": "^3.27.1",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/node": "^18.13.0",
