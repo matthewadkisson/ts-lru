@@ -19,7 +19,7 @@
  */
 const NEWER = Symbol('newer');
 const OLDER = Symbol('older');
-class Entry<K, V> {
+export class Entry<K, V> {
     key: K;
     value: V;
     [NEWER]: Entry<K, V> | undefined;

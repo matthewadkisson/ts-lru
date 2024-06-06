@@ -1,6 +1,6 @@
-import { LRUMap } from "./LruMap";
+import { LRUMap, Entry } from "./LruMap";
 
-export { LRUMap };
+export { LRUMap, Entry };
 /* @preserve
 The MIT License
 

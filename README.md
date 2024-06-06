@@ -61,27 +61,13 @@ c.toString()        // -> "angela:24 < john:26 < zorro:141"
 
 # Usage
 
-**Recommended:** Copy the code in lru.js or copy the lru.js and lru.d.ts files into your source directory. For minimal functionality, you only need the lines up until the comment that says "Following code is optional".
-
-**Using NPM:** [`yarn add lru_map`](https://www.npmjs.com/package/lru_map) (note that because NPM is one large flat namespace, you need to import the module as "lru_map" rather than simply "lru".)
-
-**Using AMD:** An [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md#amd) module loader like [`amdld`](https://github.com/rsms/js-amdld) can be used to load this module as well. There should be nothing to configure.
+**Using NPM:** [`npm install ts_lru_map`](https://www.npmjs.com/package/ts_lru_map) 
 
 **Testing**:
 
 - Run tests with `npm test`
 - Run benchmarks with `npm run benchmark`
 
-**Using with TypeScript**
-
-This module comes with complete typing coverage for use with TypeScript. If you copied the code or files rather than using a module loader, make sure to include `lru.d.ts` into the same location where you put `lru.js`.
-
-```ts
-import {LRUMap} from './lru'
-// import {LRUMap} from 'lru'     // when using via AMD
-// import {LRUMap} from 'lru_map' // when using from NPM
-console.log('LRUMap:', LRUMap)
-```
 
 
 # API
@@ -98,9 +84,6 @@ export class LRUMap<K,V> {
   // key-value pairs (2-element Arrays). Each key-value pair is added to the new Map.
   // null is treated as undefined.
   constructor(limit :number, entries? :Iterable<[K,V]>);
-
-  // Convenience constructor equivalent to `new LRUMap(count(entries), entries)`
-  constructor(entries :Iterable<[K,V]>);
 
   // Current number of items
   size :number;
@@ -151,8 +134,8 @@ export class LRUMap<K,V> {
   // Returns an iterator over all values, starting with the oldest.
   values() : Iterator<V>;
 
-  // Returns an iterator over all entries, starting with the oldest.
-  entries() : Iterator<[K,V]>;
+  // Returns an iterable over all entries, starting with the oldest.
+  entries() : Iterable<[K,V]>;
 
   // Returns an iterator over all entries, starting with the oldest.
   [Symbol.iterator]() : Iterator<[K,V]>;

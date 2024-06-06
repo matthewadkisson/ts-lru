@@ -158,5 +158,6 @@ class w {
   }
 }
 export {
+  u as Entry,
   p as LRUMap
 };

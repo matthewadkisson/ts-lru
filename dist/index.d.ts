@@ -1,3 +1,11 @@
+export declare class Entry<K, V> {
+    key: K;
+    value: V;
+    [NEWER]: Entry<K, V> | undefined;
+    [OLDER]: Entry<K, V> | undefined;
+    constructor(key: K, value: V);
+}
+
 export declare class LRUMap<K, V> {
     private size;
     private limit;
@@ -27,5 +35,9 @@ export declare class LRUMap<K, V> {
     /** Returns a String representation */
     toString(): string;
 }
+
+declare const NEWER: unique symbol;
+
+declare const OLDER: unique symbol;
 
 export { }
