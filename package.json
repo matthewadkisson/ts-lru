@@ -1,42 +1,51 @@
 {
-  "name": "lru_map",
-  "version": "0.4.1",
-  "description": "Finite key-value map using the Least Recently Used (LRU) algorithm where the most recently used objects are keept in the map while less recently used items are evicted to make room for new ones.",
-  "main": "dist/lru.js",
-  "types": "lru.d.ts",
-  "typings": "lru.d.ts",
+  "name": "ts_lru_map",
+  "version": "1.0.0",
+  "description": "A typescript implementation of the lru_map package",
+  "module": "./dist/lru-map.es.js",
+  "main": "./dist/lru-map.cjs.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
-    "test": "node test.js && echo 'Verifying TypeScript definition...' && tsc --noEmit",
-    "build": "esbuild --minify --sourcemap --target=es2016 --outfile=dist/lru.js lru.js",
-    "prepublishOnly": "npm test",
-    "dist": "git status -uno --porcelain | grep -v \"?? \" && echo 'aborted; uncommitted changes' || (npm publish . && git tag v`node -p 'require(\"./package.json\").version'`) && echo 'Final step:'; echo '  git push origin master' v`node -p 'require(\"./package.json\").version'`",
-    "benchmark": "node --expose-gc benchmark.js"
+    "test": "node ./tests/test.js",
+    "build": "vue-tsc --noEmit && vite build",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "benchmark": "node --expose-gc ./tests/benchmark.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rsms/js-lru.git"
+    "url": "git+https://github.com/matthewadkisson/ts-lru.git"
   },
   "files": [
     "README.md",
-    "lru.d.ts",
-    "dist/lru.js",
-    "dist/lru.js.map",
-    ".gitignore"
+    "dist"
   ],
   "keywords": [
     "cache",
     "lru",
     "buffer",
-    "map"
+    "map",
+    "ts"
   ],
-  "author": "Rasmus Andersson <me@rsms.me>",
+  "author": "Matthew Adkisson <matthew@adkisson.dev>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rsms/js-lru/issues"
+    "url": "https://github.com/matthewadkisson/ts-lru/issues"
   },
-  "homepage": "https://github.com/rsms/js-lru#readme",
+  "homepage": "https://github.com/matthewadkisson/ts-lru#readme",
+  "dependencies": {
+    "@mdi/font": "7.0.96",
+    "@mdi/js": "^7.2.96",
+    "roboto-fontface": "*",
+    "rollup": "^3.27.1"
+  },
   "devDependencies": {
-    "esbuild": "^0.5.26",
-    "typescript": "^3.9.7"
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/node": "^18.13.0",
+    "eslint": "^8.22.0",
+    "sass": "^1.62.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.0.9",
+    "vite-plugin-dts": "^3.9.1"
   }
 }
